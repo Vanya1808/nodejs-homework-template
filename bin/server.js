@@ -2,9 +2,6 @@ const app = require('../app')
 
 const PORT = process.env.PORT || 3000
 const dbContacts = require('../config/dbContacts');
-const app = require('../app');
-
-const PORT = process.env.PORT || 3000;
 
 dbContacts
   .then(() => {
