@@ -1,7 +1,17 @@
 const app = require('../app')
 
 const PORT = process.env.PORT || 3000
+const dbContacts = require('../config/dbContacts');
+const app = require('../app');
 
-app.listen(PORT, () => {
-  console.log(`Server running. Use our API on port: ${PORT}`)
-})
+const PORT = process.env.PORT || 3000;
+
+dbContacts
+  .then(() => {
+    app.listen(PORT, () => {
+      console.log(`Server running. Use our API on port: ${PORT}`);
+    });
+  })
+  .catch(err => {
+    console.log(`Server not run. Error: ${err}`);
+  });
